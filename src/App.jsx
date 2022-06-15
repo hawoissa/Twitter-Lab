@@ -4,14 +4,23 @@ import Navbar from "./components/Navbar/Navbar"
 import UserProfile from "./components/UserProfile/UserProfile"
 import Advertisements from "./components/Advertisements/Advertisements"
 import { codepathUserProfile, firstTweet, navLinks } from "./constants"
+import { useState } from "react"
 
 export default function App() {
+  const [userProfile, setUserProfile] = useState(codepathUserProfile);
+  
+  const [tweets, setTweets] = useState([firstTweet]);
+
+  const [tweetText, setTweetText] = useState("");
+
   return (
     <div className="app">
-      <Navbar />
+      <Navbar navLinks={navLinks}/>
       <main>
-        <UserProfile />
-        <Feed />
+        <UserProfile userProfile={userProfile}/>
+        <Feed tweets={tweets} setTweets={setTweets} 
+        tweetText={tweetText} setTweetText={setTweetText}
+        userProfile={userProfile}/>
         <Advertisements />
       </main>
     </div>

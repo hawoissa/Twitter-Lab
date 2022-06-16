@@ -14,7 +14,7 @@ export default function TweetBox(props) {
     }]  
     props.setTweets(newTweet);
     props.setTweetText("");
-    // props.userProfile.numTweets += 1;
+    props.userProfile.numTweets += 1;
   }
   //console.log("this is tweetext   " + props.tweetText);
   const length = props.tweetText.length;
